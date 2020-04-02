@@ -1,0 +1,10 @@
+#root {
+  background: #F9F9F9;
+}
+
+.header a {
+  line-height: 50px;
+  padding: 0px 15px;
+  text-align: center;
+  color: white;
+}
