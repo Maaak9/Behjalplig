@@ -1,25 +1,44 @@
 import React from "react";
+import Grid from '@material-ui/core/Grid';
+
 import styled from 'styled-components'
+import { makeStyles } from '@material-ui/core/styles';
+import BottomNavigation from '@material-ui/core/BottomNavigation';
+import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
+import FolderIcon from '@material-ui/icons/Folder';
+import RestoreIcon from '@material-ui/icons/Restore';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
 
 const FooterContainer = styled.div`
-  min-height: 100px;
-  width: 100%;
-  background: #80B7A7;
+  position: fixed;
+  height: 50px;
+  bottom: 0;
 `;
 
+const useStyles = makeStyles({
+  root: {
+    width: 500,
+  },
+});
 
-class Footer extends React.Component {
-  render() {
-    return (
-      <FooterContainer>
-        <div className="container-fluid">
-          <div className="row">
-            {this.props.children}
-          </div>
-        </div>
-      </FooterContainer>
-    );
-  }
+
+export default function Footer() {
+  const classes = useStyles();
+  const [value, setValue] = React.useState('recents');
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  return (
+    <FooterContainer>
+      <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
+        <BottomNavigationAction label="Recents" value="recents" icon={<RestoreIcon />} />
+        <BottomNavigationAction label="Favorites" value="favorites" icon={<FavoriteIcon />} />
+        <BottomNavigationAction label="Nearby" value="nearby" icon={<LocationOnIcon />} />
+        <BottomNavigationAction label="Folder" value="folder" icon={<FolderIcon />} />
+      </BottomNavigation>
+    </FooterContainer>
+  );
 }
-
-export default Footer;
