@@ -7,12 +7,14 @@ import styled from 'styled-components';
 
 import Home from './Routes/Home';
 import About from './Routes/About';
-import Adds from './Routes/Adds';
+import Ads from './Routes/Ads';
 
 import AuthReducer from './Redux/Reducers/AuthReducer';
+import AdsReducer from './Redux/Reducers/AdsReducer';
 
 const store = createStore(combineReducers({
   auth: AuthReducer,
+  ads: AdsReducer
 }),
   compose(
     applyMiddleware(thunk),
@@ -29,7 +31,7 @@ const CssVariableWrapper = styled.div`
   --secondary-color: #0E83A0;
   --primary-button-color: #F9B34C;
   --background-color: #FFFFFF;
-  --white-blur-tone-color: #F2FAFC;
+  --white-blue-tone-color: #F2FAFC;
   --border-color: #587489;
 
 
@@ -43,7 +45,7 @@ function AppRouter() {
       <Router>
         <CssVariableWrapper>
           <Route path="/" exact component={Home} />
-          <Route path="/annonser/" component={Adds} />
+          <Route path="/annonser/" component={Ads} />
           <Route path="/about/" component={About} />
         </CssVariableWrapper>
       </Router>

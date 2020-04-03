@@ -11,6 +11,11 @@ const HeaderContainer = styled.div`
   background: var(--primary-color);
   margin: auto;
   z-index: 10;
+
+  @media (max-width: 768px) {
+    height: 50px;
+    position: inherit;
+  }
 `;
 
 const Routes = styled.div`
