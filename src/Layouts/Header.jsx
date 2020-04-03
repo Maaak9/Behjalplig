@@ -4,17 +4,17 @@ import { Link } from "react-router-dom";
 import styled from 'styled-components'
 
 const HeaderContainer = styled.div`
-  /* position: fixed;
+  position: fixed;
   width: 100%;
   min-height: 50px;
   line-height: 50px;
   background: var(--primary-color);
   margin: auto;
-  z-index: 10; */
+  z-index: 10;
 `;
 
 const Routes = styled.div`
-  /* text-align: center;
+  text-align: center;
   width: 100%;
   margin: auto;
   a {
@@ -22,7 +22,7 @@ const Routes = styled.div`
     padding: 0px 15px;
     text-align: center;
     color: white;
-  } */
+  }
 `;
 
 class Header extends React.Component {
@@ -31,6 +31,7 @@ class Header extends React.Component {
       <HeaderContainer>
         <Routes>
           <Link to="/">Home</Link>
+          <Link to='/annonser/'>Annonser</Link>
           <Link to="/about/">About</Link>
         </Routes>
       </HeaderContainer>

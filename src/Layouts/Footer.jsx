@@ -1,8 +1,6 @@
-import React from "react";
-import Grid from '@material-ui/core/Grid';
+import React, { useLayoutEffect, useState } from "react";
 
 import styled from 'styled-components'
-import { makeStyles } from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
 import FolderIcon from '@material-ui/icons/Folder';
@@ -13,32 +11,62 @@ import LocationOnIcon from '@material-ui/icons/LocationOn';
 const FooterContainer = styled.div`
   position: fixed;
   height: 50px;
+  width: 100%;
   bottom: 0;
+
+  .MuiBottomNavigation-root {
+    width: 100%;
+  }
 `;
 
-const useStyles = makeStyles({
-  root: {
-    width: 500,
-  },
-});
+const FooterContainerDesktop = styled.div`
+  height: 200px;
+  width: 100%;
+  bottom: 0;
+  background: var(--primary-color);
+`;
 
+function useWindowSize() {
+  const [size, setSize] = useState([0, 0]);
+  useLayoutEffect(() => {
+    function updateSize() {
+      setSize([window.innerWidth, window.innerHeight]);
+    }
+    window.addEventListener('resize', updateSize);
+    updateSize();
+    return () => window.removeEventListener('resize', updateSize);
+  }, []);
+  return size;
+}
 
 export default function Footer() {
-  const classes = useStyles();
   const [value, setValue] = React.useState('recents');
+  const [width, height] = useWindowSize();
+
+  const isMobile = width < 800;
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
   return (
-    <FooterContainer>
-      <BottomNavigation value={value} onChange={handleChange} className={classes.root}>
-        <BottomNavigationAction label="Recents" value="recents" icon={<RestoreIcon />} />
-        <BottomNavigationAction label="Favorites" value="favorites" icon={<FavoriteIcon />} />
-        <BottomNavigationAction label="Nearby" value="nearby" icon={<LocationOnIcon />} />
-        <BottomNavigationAction label="Folder" value="folder" icon={<FolderIcon />} />
-      </BottomNavigation>
-    </FooterContainer>
+    <React.Fragment>
+      { isMobile ? (
+        <FooterContainer>
+          <BottomNavigation value={value} onChange={handleChange}>
+            <BottomNavigationAction label="Recents" value="recents" icon={<RestoreIcon />} />
+            <BottomNavigationAction label="Favorites" value="favorites" icon={<FavoriteIcon />} />
+            <BottomNavigationAction label="Nearby" value="nearby" icon={<LocationOnIcon />} />
+            <BottomNavigationAction label="Folder" value="folder" icon={<FolderIcon />} />
+          </BottomNavigation>
+        </FooterContainer>) : (
+        <FooterContainerDesktop>
+          <div>
+            <h2>testetes</h2>
+          </div>
+        </FooterContainerDesktop>
+        )
+      }
+    </React.Fragment>
   );
 }

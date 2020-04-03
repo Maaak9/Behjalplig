@@ -7,6 +7,7 @@ import styled from 'styled-components';
 
 import Home from './Routes/Home';
 import About from './Routes/About';
+import Adds from './Routes/Adds';
 
 import AuthReducer from './Redux/Reducers/AuthReducer';
 
@@ -27,8 +28,13 @@ const CssVariableWrapper = styled.div`
   --primary-color: #2c7873;
   --secondary-color: #0E83A0;
   --primary-button-color: #F9B34C;
-  --background-color: #F2FAFC;
+  --background-color: #FFFFFF;
+  --white-blur-tone-color: #F2FAFC;
   --border-color: #587489;
+
+
+
+  background: var(--background-color);
 `;
 
 function AppRouter() {
@@ -37,6 +43,7 @@ function AppRouter() {
       <Router>
         <CssVariableWrapper>
           <Route path="/" exact component={Home} />
+          <Route path="/annonser/" component={Adds} />
           <Route path="/about/" component={About} />
         </CssVariableWrapper>
       </Router>
