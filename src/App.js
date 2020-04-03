@@ -8,6 +8,8 @@ import styled from 'styled-components';
 import Home from './Routes/Home';
 import About from './Routes/About';
 import Ads from './Routes/Ads';
+import Login from './Routes/Login';
+import Signup from './Routes/Signup';
 
 import AuthReducer from './Redux/Reducers/AuthReducer';
 import AdsReducer from './Redux/Reducers/AdsReducer';
@@ -34,19 +36,21 @@ const CssVariableWrapper = styled.div`
   --white-blue-tone-color: #F2FAFC;
   --border-color: #587489;
 
-
-
-  background: var(--background-color);
+  color: #373737ed;
+  font-family: 'Roboto Slab', serif;
+  background: var(--white-blue-tone-color);
 `;
 
 function AppRouter() {
   return (
     <Provider store={store}>
       <Router>
-        <CssVariableWrapper>
+        <CssVariableWrapper className="variable-wrapper">
           <Route path="/" exact component={Home} />
           <Route path="/annonser/" component={Ads} />
           <Route path="/about/" component={About} />
+          <Route path="/login/" component={Login} />
+          <Route path="/signup/" component={Signup} />
         </CssVariableWrapper>
       </Router>
     </Provider>

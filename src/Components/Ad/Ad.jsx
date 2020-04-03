@@ -1,33 +1,44 @@
 import React from "react";
-import styled from 'styled-components'
+import Paper from '@material-ui/core/Paper';
+import styled from 'styled-components';
 
-const AddWrapper = styled.div`
-  background: var(--white-blue-tone-color);
-  display: flex;
-
+const AdWrapper = styled.div`
+  .AdWrapper-paper {
+    background: #ffffff;
+    display: flex;
+    border-radius: 30px 10px;
+  }
   .image-wrapper {
-    max-width: 120px;
-    max-height: 120px;
+    max-width: 100px;
+    max-height: 100px;
   }
   img {
-    max-width: 120px;
-    max-height: 120px;
+    max-width: 100px;
+    max-height: 100px;
     margin: 10px;
   }
-
   h2 {
     font-size: 1.3em;
-    margin: 10px;
   }
-
   .right-panel {
     margin: 10px 5px;
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
   }
   .location-container {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .description {
+    font-size: 14px;
+  }
+  .MuiPaper-root {
+    margin-bottom: 10px;
   }
 `
+
 
 // title: 'Add5',
 // date: 2,
@@ -39,27 +50,27 @@ const AddWrapper = styled.div`
 class Ad extends React.Component {
   render() {
     const { ad } = this.props;
-    console.warn('ad 3333', ad);
 
     return (
-      <AddWrapper>
-        <div className="img-wrapper">
-          <img src={ad.img} />
-        </div>
-        <div className="right-panel">
-          <div className="location-container">
-            <h4>{ad.location.city}</h4>
-            <span>{ad.location.county}</span>
+      <AdWrapper className="AdWrapper">
+        <Paper className="AdWrapper-paper">
+          <div className="img-wrapper">
+            <img src={ad.img} />
           </div>
-          <div>
-            <h2>{ad.title}</h2>
-            <h4>{ad.description}</h4>
+          <div className="right-panel">
+            <div>
+              <h2>{ad.title}</h2>
+            </div>
+            <div className="location-container">
+              <h4>{ad.location.city}</h4>
+              <span>{ad.location.county}</span>
+            </div>
+            <div>
+              <div className="description">{ad.description.substring(0, 90) + "..."}</div>
+            </div>
           </div>
-          <div>
-            <p>{ad.dscription}</p>
-          </div>
-        </div>
-      </AddWrapper>
+        </Paper>
+      </AdWrapper>
     );
   }
 }

@@ -8,7 +8,7 @@ import Footer from '../Layouts/Footer';
 class Home extends React.Component {
   render() {
     return (
-      <div>
+      <div className="">
         <Header />
         <Body>
           <div>wowowo</div>
@@ -37,11 +37,13 @@ class Home extends React.Component {
           <div>wowowo</div>
           <p>hejhje</p>
           <div>wowowo</div>
-          <p>hejhje</p>          <div>wowowo</div>
-          <p>hejhje</p>          <div>wowowo</div>
           <p>hejhje</p>
           <div>wowowo</div>
-          <p>hejhje</p>          <div>wowowo</div>
+          <p>hejhje</p>
+          <p>hejhje</p>
+          <div>wowowo</div>
+          <p>hejhje</p>
+          <div>wowowo</div>
           <p>hejhje</p>
 
           <div>wowowo</div>

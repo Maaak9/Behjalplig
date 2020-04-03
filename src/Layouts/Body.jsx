@@ -3,6 +3,8 @@ import Grid from '@material-ui/core/Grid';
 import styled from 'styled-components'
 
 const BodyWrapper = styled.div`
+  padding: 10px;
+  margin-bottom: 50px;
   /* color: black;
   padding-top: 50px;
   background: green;
@@ -14,7 +16,7 @@ const BodyWrapper = styled.div`
 class Body extends React.Component {
   render() {
     return (
-      <BodyWrapper className="">
+      <BodyWrapper className="body-wrapper">
           {this.props.children}
       </BodyWrapper>
     );
