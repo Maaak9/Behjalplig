@@ -37,6 +37,9 @@ const AdWrapper = styled.div`
   .MuiPaper-root {
     margin-bottom: 10px;
   }
+  .img-wrapper {
+    margin: auto;
+  }
 `
 
 

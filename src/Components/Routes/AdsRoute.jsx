@@ -7,6 +7,7 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Ad from "../Ad/Ad";
 import PaperRounded from '../PaperRounded';
+import CreateHelpItem from "../CreateHelpItem";
 
 const AddWrapper = styled.div`
   /* margin-top: 50px; */
@@ -23,10 +24,8 @@ class AdsRoute extends React.Component {
       <AddWrapper className="">
         <Grid item container spacing={3}>
           <Grid item xs={12}>
-            <Grid item md={6} xs={12} sm={12} >
-              <Paper style={{ 'margin-bottom': '15px', padding: '10px' }}>
-                <div>testtest</div>
-              </Paper>
+            <Grid item md={12} xs={12} sm={12} >
+              <CreateHelpItem />
             </Grid>
             <Grid item md={6} xs={12} sm={12} >
               { Object.keys(adsMap).map((key) => {
